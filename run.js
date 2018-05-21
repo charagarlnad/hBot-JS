@@ -1,21 +1,14 @@
 const Eris = require('eris');
 const CONFIG = require('./config.json');
 
-var bot = new Eris.CommandClient(CONFIG.token, {}, {
-    description: 'A epic bot that is slightly less shit now.',
-    owner: 'Chara#0001',
-    prefix: CONFIG.prefix
-});
+global.bot = new Eris.CommandClient(CONFIG.token, {}, { prefix: CONFIG.prefix, defaultHelpCommand: false });
 
-console.log('fuck');
-
-bot.registerCommand('h', (msg) => {
-    console.log('fuckass');
-    msg.channel.createMessage('h');
-}, {
-    description: 'h',
-    fullDescription: 'hhhhhhhhh',
-    usage: 'no'
+var glob = require('glob');
+var path = require('path');
+glob.sync( './src/commands/**/*.js' ).forEach(function(file) {
+    require(path.resolve(file));
+    // easier loader using exports if i want to do that later i guess idfk
+    // bot.registerCommand(mod.name, mod.command, { description: mod.description });
 });
 
 bot.connect();
