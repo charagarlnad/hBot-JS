@@ -1,8 +1,23 @@
 bot.registerCommand('help', (msg) => {
-    var finaltext = '';
-    finaltext += '**hBot Commands:\n**';
+    var sorted = {};
     for(label in bot.commands) {
-        finaltext += `  **${msg.prefix}${label}** - ${bot.commands[label].description}\n`;
+        if (sorted[bot.commands[label].description] === undefined) {
+            sorted[bot.commands[label].description] = [];
+        }
+        sorted[bot.commands[label].description].push([label, bot.commands[label].fullDescription]);
     }
-    msg.channel.createMessage(finaltext);
-}, { description: 'Get the commands this bot has.'});
+    var finalFields = [];
+    Object.keys(sorted).forEach(function(key) {
+        var message = '';
+        sorted[key].forEach(function (command) {
+            message += `**${command[0]}**: ${command[1]}\n`
+        })
+        finalFields.push({'name': key, 'value': message});
+    })
+    var embed = {
+        "embed": {
+            'fields': finalFields
+        }
+    }
+    msg.channel.createMessage(embed);
+}, { description: 'General', fullDescription: 'Get the commands this bot has.'});

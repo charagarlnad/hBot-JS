@@ -8,4 +8,4 @@ bot.registerCommand('base64', (msg, args) => {
     } else {
         msg.channel.createMessage('A option of decode/encode is required.');
     }
-}, { description: '[**Encode or Decode**] base64 representation of a [**string**].'});
+}, { description: 'General', fullDescription: '[**Encode or Decode**] base64 representation of a [**string**].'});
