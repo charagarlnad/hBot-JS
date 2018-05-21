@@ -1,0 +1,29 @@
+{
+  "name": "hbot-js",
+  "version": "1.0.0",
+  "description": "epic rewrite because no one will fuck off",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charagarlnad/hBot-JS.git"
+  },
+  "author": "charagarlnad",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/charagarlnad/hBot-JS/issues"
+  },
+  "homepage": "https://github.com/charagarlnad/hBot-JS#readme",
+  "dependencies": {
+    "bufferutil": "^3.0.5",
+    "eris": "^0.8.5",
+    "erlpack": "github:abalabahaha/erlpack",
+    "eventemitter3": "^3.1.0",
+    "node-opus": "^0.3.0",
+    "sodium-native": "^2.1.6",
+    "uws": "^10.148.0",
+    "zlib-sync": "^0.1.4"
+  }
+}
