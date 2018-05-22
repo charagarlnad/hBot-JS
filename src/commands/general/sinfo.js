@@ -6,6 +6,10 @@ bot.registerCommand('sinfo', (msg) => {
   const embed = {
     embed: {
       title: 'Server Info',
+      color: 0x7289DA,
+      thumbnail: {
+        url: msg.channel.guild.iconURL
+      },
       fields: [
         {
           name: 'Server Name',
