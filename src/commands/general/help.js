@@ -6,14 +6,14 @@ bot.registerCommand('help', (msg) => {
     }
     sorted[bot.commands[label].description].push(`**${label}**: ${bot.commands[label].fullDescription}`);
   });
-  const finalFields = [];
-  Object.keys(sorted).forEach((key) => {
-    finalFields.push({ name: key, value: sorted[key].join('\n') });
-  });
   const embed = {
     embed: {
-      fields: finalFields,
+      color: 0x7289DA,
+      fields: [],
     },
   };
+  Object.keys(sorted).forEach((key) => {
+    embed.embed.fields.push({ name: key, value: sorted[key].join('\n') });
+  });
   msg.channel.createMessage(embed);
 }, { description: 'General', fullDescription: 'Get the commands this bot has.' });
