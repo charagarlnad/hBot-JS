@@ -1,7 +1,7 @@
 const Eris = require('eris');
 const CONFIG = require('./config.json');
 
-global.bot = new Eris.CommandClient(
+const bot = new Eris.CommandClient(
   CONFIG.token, {},
   {
     prefix: CONFIG.prefix,
@@ -10,7 +10,7 @@ global.bot = new Eris.CommandClient(
 );
 
 require('fast-glob').sync('./src/commands/**/*.js').forEach((file) => {
-  require(file);
+  require(file).attach(bot);
 });
 
 bot.connect();
